@@ -1,0 +1,22 @@
+name: 'Build and push to Google Container Registry'
+description: 'Authenticate with gcloud, build image and push image to GCR'
+author: 'Thomas Hedoux'
+branding:
+  icon: 'upload-cloud'
+  color: 'purple'
+inputs:
+  image:
+    description: 'Name of the docker image formatted as follow: [your-hostname]/[your-project]/[image]'
+    required: true
+  project:
+    description: 'GCP project in small letters'
+    required: true
+  region:
+    description: 'GCP region'
+    required: true
+  service key:
+    description: 'GCP service key with storage and run permissions in base 64'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
